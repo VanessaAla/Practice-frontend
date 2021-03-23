@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
+import { selectToken, selectUser } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -113,5 +113,34 @@ export const getUserWithStoredToken = () => {
       dispatch(logOut());
       dispatch(appDoneLoading());
     }
+  };
+};
+
+export const updateMySpace = (title, description, backgroundColor, color) => {
+  return async (dispatch, getState) => {
+    const { space, token } = selectUser(getState());
+    dispatch(appLoading());
+
+    const response = await axios.patch(
+      `${apiUrl}/spaces/${space.id}`,
+      {
+        title,
+        description,
+        backgroundColor,
+        color,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log(response);
+
+    dispatch(
+      showMessageWithTimeout("success", false, "update successful", 3000)
+    );
+    dispatch(spaceUpdated(response.data.space));
+    dispatch(appDoneLoading());
   };
 };
