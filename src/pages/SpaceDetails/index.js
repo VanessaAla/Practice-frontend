@@ -16,7 +16,7 @@ export default function SpaceDetails() {
   }, [dispatch, id]);
 
   return (
-    <>
+    <div>
       <Space
         id={space.id}
         title={space.title}
@@ -28,6 +28,6 @@ export default function SpaceDetails() {
       <Container>
         <StoryCarousel space={space} />
       </Container>
-    </>
+    </div>
   );
 }

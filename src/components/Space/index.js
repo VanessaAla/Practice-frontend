@@ -4,10 +4,10 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 export default function Space(props) {
+  // The spaces have a backgroundColor and color as specified by their users
   return (
     <Jumbotron
       style={{
-        backgroundColor: props.backgroundColor,
         color: props.color,
       }}
     >
@@ -15,6 +15,7 @@ export default function Space(props) {
       <p>{props.description}</p>
       {props.showLink ? (
         <Link to={`/spaces/${props.id}`}>
+          {/*Each space has a Visit space button, it links to a space's details */}
           <Button>Visit space</Button>
         </Link>
       ) : null}

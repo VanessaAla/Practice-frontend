@@ -30,10 +30,11 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={Spaces} />
-        <Route path="/myspace" component={MySpace} />
+        {/* The frontend route / displays a list of spaces*/}
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
-        <Route path="spaces/:id" component={SpaceDetails} />
+        <Route path="/myspace" component={MySpace} />
+        <Route path="/spaces/:id" component={SpaceDetails} />
       </Switch>
     </div>
   );
