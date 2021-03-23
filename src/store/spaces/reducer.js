@@ -12,9 +12,10 @@ export default (state = initialState, action) => {
         if (space.id !== action.payload.id) {
           return space;
         }
+
+        return { ...action.payload, stories: [...space.stories] };
       });
     }
-
     default:
       return state;
   }

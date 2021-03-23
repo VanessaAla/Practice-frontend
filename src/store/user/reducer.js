@@ -3,6 +3,8 @@ import {
   LOGIN_SUCCESS,
   TOKEN_STILL_VALID,
   SPACE_UPDATED,
+  STORY_POST_SUCCESS,
+  STORY_DELETE_SUCCESS,
 } from "./actions";
 
 const initialState = {
@@ -29,6 +31,28 @@ export default (state = initialState, action) => {
       return {
         ...state,
         space: { ...action.payload, stories: state.space.stories },
+      };
+
+    case STORY_POST_SUCCESS:
+      return {
+        ...state,
+        space: {
+          ...state.space,
+          stories: [...state.space.stories, action.payload],
+        },
+      };
+
+    case STORY_DELETE_SUCCESS:
+      const storyId = action.payload;
+      const newStories = state.space.stories.filter(
+        (story) => story.id !== storyId
+      );
+      return {
+        ...state,
+        space: {
+          ...state.space,
+          stories: newStories,
+        },
       };
 
     default:
