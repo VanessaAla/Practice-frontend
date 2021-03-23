@@ -16,13 +16,13 @@ export default function Navigation() {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
-        Cool Story Bro
+        Cool Story Bro!
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Spaces" />
-          <NavbarItem path="/other" linkText="MySpace" />
+          {token ? <NavbarItem path="/myspace" linkText="My Space" /> : null}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>
