@@ -23,6 +23,7 @@ export default function Navigation() {
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Spaces" />
           {token ? <NavbarItem path="/myspace" linkText="My Space" /> : null}
+          {/* You see a My space link in the navbar (but only when you're logged in)*/}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

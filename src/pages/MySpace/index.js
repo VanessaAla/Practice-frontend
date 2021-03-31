@@ -41,7 +41,8 @@ export default function MySpace() {
       <Container>
         {displayButtons ? (
           <Card>
-            <Button onClick={() => setEditMode(true)}>Edit my space</Button>
+            <Button onClick={() => setEditMode(true)}>Edit my space</Button>{" "}
+            {/*There is a button with Edit my space on My space that makes a form appear */}
             <Button onClick={() => setPostStoryMode(true)} className="mt-2">
               Post a cool story bro
             </Button>
