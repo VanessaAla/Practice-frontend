@@ -15,5 +15,9 @@ describe("#fetchSpacesSuccess", () => {
       // do assertion on function return
       expect(action).toEqual(expected);
     });
+    //test => action.payload should have the same length as the argument given
+    /*test("the payload of whats returned should have the same length as the spaces array", () => {
+      const action = fetchSpacesSuccess(spaces);
+      expect(action.payload).toHaveLength(spaces.length);*/
   });
 });
